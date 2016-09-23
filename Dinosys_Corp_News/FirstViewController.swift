@@ -9,6 +9,7 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    @IBOutlet var searchBar: UISearchBar!
     
     fileprivate let manager = ManagerFake.share
     
@@ -20,7 +21,7 @@ class FirstViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setUpNibFile()
-        setHeaderHeight()
+        setLayout()
     }
     
     private func setUpNibFile() {
@@ -30,8 +31,9 @@ class FirstViewController: UIViewController {
         tableView.register(header, forHeaderFooterViewReuseIdentifier: "headerCell")
     }
     
-    private func setHeaderHeight() {
+    private func setLayout() {
         tableView.estimatedSectionHeaderHeight = 200
+        self.tableView.showsVerticalScrollIndicator = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

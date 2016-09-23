@@ -15,6 +15,7 @@
 		0C0EA8CC1D94C1E300A47AAF /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */; };
 		0C0EA8D11D94C66B00A47AAF /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */; };
 		0C0EA8D21D94C66B00A47AAF /* EventHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EA8D01D94C66B00A47AAF /* EventHeaderCell.xib */; };
+		0C4DA7791D953C4F009C8C26 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA7781D953C4F009C8C26 /* LaunchScreen.png */; };
 		0CD0F0F51D93CB5A003EFE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0F0F41D93CB5A003EFE41 /* AppDelegate.swift */; };
 		0CD0F0F71D93CB5A003EFE41 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0F0F61D93CB5A003EFE41 /* FirstViewController.swift */; };
 		0CD0F0FC1D93CB5A003EFE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0F0FA1D93CB5A003EFE41 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
 		0C0EA8D01D94C66B00A47AAF /* EventHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderCell.xib; sourceTree = "<group>"; };
+		0C4DA7781D953C4F009C8C26 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		0CD0F0F11D93CB5A003EFE41 /* Dinosys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dinosys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD0F0F41D93CB5A003EFE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CD0F0F61D93CB5A003EFE41 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0CD0F0FD1D93CB5A003EFE41 /* Assets.xcassets */,
+				0C4DA7781D953C4F009C8C26 /* LaunchScreen.png */,
 			);
 			name = Resouces;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4DA7791D953C4F009C8C26 /* LaunchScreen.png in Resources */,
 				0C0EA8CC1D94C1E300A47AAF /* EventTableViewCell.xib in Resources */,
 				0CD0F1011D93CB5A003EFE41 /* LaunchScreen.storyboard in Resources */,
 				0CD0F0FE1D93CB5A003EFE41 /* Assets.xcassets in Resources */,

@@ -14,21 +14,39 @@ protocol UpdateTableViewProtocol {
 
 
 class ScrollViewController: UIViewController {
+    @IBOutlet var London: UIImageView!
+    @IBOutlet var Manchester: UIImageView!
+    @IBOutlet var Paris: UIImageView!
     
     var delegate: UpdateTableViewProtocol?
     
     @IBOutlet var scrollView: UIScrollView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        scrollView.delegate = self
+        setUpData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setUpLayout()
+    }
+    
+    private func setUpData() {
+        
+        scrollView.delegate = self
+        
+        London.image = UIImage(named: "London")
+        Paris.image = UIImage(named: "Paris")
+        Manchester.image = UIImage(named: "Manchester")
+    }
+    
+    private func setUpLayout() {
+        scrollView.showsHorizontalScrollIndicator = false
     }
 }
 

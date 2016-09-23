@@ -23,8 +23,9 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gth-hR-qDV">
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Where do you want to go" translatesAutoresizingMaskIntoConstraints="NO" id="5ZC-me-Vju">
+                                    <searchBar contentMode="redraw" placeholder="Where do you want to go" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZC-me-Vju">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore the Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIM-c7-4zP">
@@ -78,6 +79,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="5ZC-me-Vju" id="c80-bJ-4bT"/>
                         <outlet property="tableView" destination="STB-8o-QJK" id="uqq-QY-6mV"/>
                     </connections>
                 </viewController>
@@ -94,51 +96,60 @@
                         <viewControllerLayoutGuide type="bottom" id="HUs-b4-AoM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="J7s-Fu-q2Z">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="164"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vK-2x-0Zj">
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BCh-Bs-dV6">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BCh-Bs-dV6">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="London1" translatesAutoresizingMaskIntoConstraints="NO" id="oHZ-TF-HWU"/>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Manchester6" translatesAutoresizingMaskIntoConstraints="NO" id="L4c-TX-Iz9"/>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paris1" translatesAutoresizingMaskIntoConstraints="NO" id="RlF-Qh-fTI"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="London" translatesAutoresizingMaskIntoConstraints="NO" id="oHZ-TF-HWU">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="306" id="KKo-8N-WKL"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Manchester" translatesAutoresizingMaskIntoConstraints="NO" id="TEg-Os-6Ns"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Manchester" translatesAutoresizingMaskIntoConstraints="NO" id="vLT-WI-lJ6"/>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="901" id="UmE-Yn-stY"/>
+                                            <constraint firstItem="TEg-Os-6Ns" firstAttribute="centerX" secondItem="BCh-Bs-dV6" secondAttribute="centerX" id="BuF-0D-PKy"/>
+                                            <constraint firstAttribute="width" constant="938" id="eBu-GQ-tTZ"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="BCh-Bs-dV6" secondAttribute="bottom" id="W2k-zE-HZt"/>
-                                    <constraint firstAttribute="trailing" secondItem="BCh-Bs-dV6" secondAttribute="trailing" id="gvH-6k-UGE"/>
-                                    <constraint firstItem="BCh-Bs-dV6" firstAttribute="leading" secondItem="1vK-2x-0Zj" secondAttribute="leading" id="rtg-Ve-E4q"/>
-                                    <constraint firstItem="BCh-Bs-dV6" firstAttribute="top" secondItem="1vK-2x-0Zj" secondAttribute="top" id="uRl-Ph-y6p"/>
+                                    <constraint firstItem="BCh-Bs-dV6" firstAttribute="top" secondItem="1vK-2x-0Zj" secondAttribute="top" id="6wz-bJ-kBB"/>
+                                    <constraint firstAttribute="trailing" secondItem="BCh-Bs-dV6" secondAttribute="trailing" constant="-568" id="8LL-ga-a8S"/>
+                                    <constraint firstItem="BCh-Bs-dV6" firstAttribute="leading" secondItem="1vK-2x-0Zj" secondAttribute="leading" id="AXo-Xw-ru2"/>
+                                    <constraint firstItem="BCh-Bs-dV6" firstAttribute="centerY" secondItem="1vK-2x-0Zj" secondAttribute="centerY" id="AgP-Ot-WLZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="BCh-Bs-dV6" secondAttribute="bottom" id="Gxl-wB-XAU"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1vK-2x-0Zj" secondAttribute="trailing" id="Fyz-Ko-rCH"/>
-                            <constraint firstItem="1vK-2x-0Zj" firstAttribute="leading" secondItem="J7s-Fu-q2Z" secondAttribute="leading" id="GYp-pI-2Lt"/>
-                            <constraint firstItem="HUs-b4-AoM" firstAttribute="top" secondItem="1vK-2x-0Zj" secondAttribute="bottom" id="TBW-sy-tXA"/>
-                            <constraint firstItem="1vK-2x-0Zj" firstAttribute="top" secondItem="3uU-sE-auE" secondAttribute="bottom" id="bcr-qP-0ca"/>
-                            <constraint firstItem="BCh-Bs-dV6" firstAttribute="height" secondItem="J7s-Fu-q2Z" secondAttribute="height" id="i2Z-xb-fln"/>
+                            <constraint firstItem="1vK-2x-0Zj" firstAttribute="top" secondItem="3uU-sE-auE" secondAttribute="bottom" id="7wb-i2-WvW"/>
+                            <constraint firstAttribute="trailing" secondItem="1vK-2x-0Zj" secondAttribute="trailing" id="JoM-EI-MwU"/>
+                            <constraint firstItem="1vK-2x-0Zj" firstAttribute="bottom" secondItem="HUs-b4-AoM" secondAttribute="top" id="LkH-gn-5LT"/>
+                            <constraint firstItem="1vK-2x-0Zj" firstAttribute="leading" secondItem="J7s-Fu-q2Z" secondAttribute="leading" id="Z2j-uO-rHV"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="370" height="400"/>
                     <connections>
+                        <outlet property="London" destination="oHZ-TF-HWU" id="ftR-pt-zK3"/>
+                        <outlet property="Manchester" destination="TEg-Os-6Ns" id="wxP-jR-cXH"/>
+                        <outlet property="Paris" destination="vLT-WI-lJ6" id="MTy-Ba-kLB"/>
                         <outlet property="scrollView" destination="1vK-2x-0Zj" id="xA1-Mp-riE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNC-4F-TUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354.39999999999998" y="358.02098950524743"/>
+            <point key="canvasLocation" x="353.60000000000002" y="358.02098950524743"/>
         </scene>
     </scenes>
     <resources>
-        <image name="London1" width="300" height="168"/>
-        <image name="Manchester6" width="275" height="184"/>
-        <image name="Paris1" width="286" height="176"/>
+        <image name="London" width="1080" height="1920"/>
+        <image name="Manchester" width="500" height="750"/>
     </resources>
 </document>
