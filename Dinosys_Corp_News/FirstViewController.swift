@@ -34,9 +34,8 @@ class FirstViewController: UIViewController {
         tableView.estimatedSectionHeaderHeight = 200
     }
 
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowScrollSegue"
-        {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowScrollSegue" {
             if let scrollView = segue.destination as? ScrollViewController{
                 scrollView.delegate = self
             }
