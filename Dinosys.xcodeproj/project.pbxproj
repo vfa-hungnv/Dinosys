@@ -10,6 +10,7 @@
 		0C012C331D941BEA00E8C9B1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C012C321D941BEA00E8C9B1 /* Event.swift */; };
 		0C012C351D941D4400E8C9B1 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C012C341D941D4400E8C9B1 /* City.swift */; };
 		0C012C371D941D6200E8C9B1 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C012C361D941D6200E8C9B1 /* Manager.swift */; };
+		0C03CA291D950DAE00F4D7D3 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C03CA281D950DAE00F4D7D3 /* ScrollViewController.swift */; };
 		0C0EA8CB1D94C1E300A47AAF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EA8C91D94C1E300A47AAF /* EventTableViewCell.swift */; };
 		0C0EA8CC1D94C1E300A47AAF /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */; };
 		0C0EA8D11D94C66B00A47AAF /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */; };
@@ -25,6 +26,7 @@
 		0C012C321D941BEA00E8C9B1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0C012C341D941D4400E8C9B1 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		0C012C361D941D6200E8C9B1 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		0C03CA281D950DAE00F4D7D3 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		0C0EA8C91D94C1E300A47AAF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
@@ -49,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C03CA2A1D950DBA00F4D7D3 /* Cell&Nib */ = {
+			isa = PBXGroup;
+			children = (
+				0C0EA8C91D94C1E300A47AAF /* EventTableViewCell.swift */,
+				0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */,
+				0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */,
+				0C0EA8D01D94C66B00A47AAF /* EventHeaderCell.xib */,
+			);
+			name = "Cell&Nib";
+			sourceTree = "<group>";
+		};
 		0CD0F0E81D93CB5A003EFE41 = {
 			isa = PBXGroup;
 			children = (
@@ -102,10 +115,8 @@
 			children = (
 				0CD0F0F41D93CB5A003EFE41 /* AppDelegate.swift */,
 				0CD0F0F61D93CB5A003EFE41 /* FirstViewController.swift */,
-				0C0EA8C91D94C1E300A47AAF /* EventTableViewCell.swift */,
-				0C0EA8CA1D94C1E300A47AAF /* EventTableViewCell.xib */,
-				0C0EA8CF1D94C66B00A47AAF /* EventHeaderCell.swift */,
-				0C0EA8D01D94C66B00A47AAF /* EventHeaderCell.xib */,
+				0C03CA2A1D950DBA00F4D7D3 /* Cell&Nib */,
+				0C03CA281D950DAE00F4D7D3 /* ScrollViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				0C0EA8D11D94C66B00A47AAF /* EventHeaderCell.swift in Sources */,
 				0C0EA8CB1D94C1E300A47AAF /* EventTableViewCell.swift in Sources */,
 				0CD0F0F51D93CB5A003EFE41 /* AppDelegate.swift in Sources */,
+				0C03CA291D950DAE00F4D7D3 /* ScrollViewController.swift in Sources */,
 				0C012C371D941D6200E8C9B1 /* Manager.swift in Sources */,
 				0C012C351D941D4400E8C9B1 /* City.swift in Sources */,
 				0CD0F0F71D93CB5A003EFE41 /* FirstViewController.swift in Sources */,

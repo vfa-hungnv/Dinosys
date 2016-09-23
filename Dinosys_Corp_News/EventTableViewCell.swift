@@ -11,10 +11,10 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
 
     @IBOutlet var eventImage: UIImageView!
+    
     @IBOutlet var dateField: UILabel!
     @IBOutlet var eventName: UILabel!
     @IBOutlet var status: UILabel!
-    
     @IBOutlet var decriptionField: UILabel!
     
     

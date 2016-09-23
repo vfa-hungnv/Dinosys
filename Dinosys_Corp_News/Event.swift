@@ -10,6 +10,7 @@ import Foundation
 
 struct Event {
     let imageName: String
+    let eventName: String
     let discription: String?
     let time: Date?
     let price: String?

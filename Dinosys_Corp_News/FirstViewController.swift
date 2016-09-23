@@ -20,6 +20,7 @@ class FirstViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setUpNibFile()
+        setHeaderHeight()
     }
     
     private func setUpNibFile() {
@@ -32,10 +33,14 @@ class FirstViewController: UIViewController {
     private func setHeaderHeight() {
         tableView.estimatedSectionHeaderHeight = 200
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowScrollSegue"
+        {
+            if let scrollView = segue.destination as? ScrollViewController{
+                scrollView.delegate = self
+            }
+        }
     }
 
 }
@@ -59,16 +64,17 @@ extension FirstViewController: UITableViewDataSource {
                 let date = event.time?.shortDate
                 DispatchQueue.main.async {
                     cell.eventImage.image = image
-                    cell.eventName.text = event.discription
+                    cell.eventName.text = event.eventName
                     cell.dateField.text = date
+                    cell.decriptionField.text = event.discription
                     cell.status.text = "Free"
-                    
                 }
             }
         }
         return cell
     }
 }
+
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let _ = manager.cities?["Manchester"]?.events {
@@ -76,6 +82,12 @@ extension FirstViewController: UITableViewDelegate {
             return cell
         }
         return nil
+    }
+}
+
+extension FirstViewController: UpdateTableViewProtocol {
+    func updateTableView(contentOffSet: Float) {
+        print("Content off set: \(contentOffSet)")
     }
 }
 

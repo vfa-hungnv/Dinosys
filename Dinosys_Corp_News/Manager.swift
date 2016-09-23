@@ -28,12 +28,13 @@ extension Manager {
         
         var cities = [City]()
         
-        let manchesterImages = ["Manchester1", "Manchester2", "Manchester3", "Manchester4", "Manchester5", "Manchester1", "Manchester2", "Manchester3", "Manchester4", "Manchester5"]
+        let manchesterImages = ["Manchester1", "Manchester2", "Manchester3", "Manchester4", "Manchester5"]
         let parisImages = ["Paris1", "Paris2", "Paris3", "Paris4", "Paris5"]
         let londonImages = ["London1", "London2", "London3", "London4", "London5"]
         
         
-        let description = ["The theate of dream", "Heart of England tourism", "City of the bay"]
+        let eventDescription = ["The theate of dream", "Heart of England tourism", "City of the bay", "The light", "Darkness raise"]
+        let eventName = ["Midnight Madness", "Half of Half", "Customer Week Sale", "We Have Again", "Deal of the Century"]
         let citiesName = ["Manchester", "Paris", "London"]
         let citiesDegree = ["-18", "27", "14"]
         
@@ -44,8 +45,10 @@ extension Manager {
             let city: City?
             
             var events = [Event]()
-            for imageName in citiesImage[index] {
-                let event = Event(imageName: imageName, discription: description[index], time: date, price: "12")
+            let eventImages = citiesImage[index]
+            for eventIndex in 0...(citiesImage[index].count-1) {
+                
+                let event = Event(imageName: eventImages[eventIndex], eventName: eventName[eventIndex], discription: eventDescription[eventIndex], time: date, price: "12$")
                 events.append(event)
             }
             city = City(name: citiesName[index], degree: citiesDegree[index], events: events)
