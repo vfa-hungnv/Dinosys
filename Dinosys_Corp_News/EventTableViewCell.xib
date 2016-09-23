@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="120" id="KGk-i7-Jjw" customClass="EventTableViewCell" customModule="Dinosys" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="358" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-kI-GH2">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y77-yT-uQf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="5QD-eC-RbX"/>
+                                    <constraint firstAttribute="width" constant="120" id="c0O-ln-OaU"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-5a-c0d">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWb-gb-9Bh">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVj-YA-zaV">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwr-SB-2qR">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRD-uu-Se1">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y77-yT-uQf" firstAttribute="leading" secondItem="zeZ-kI-GH2" secondAttribute="leading" id="GVe-Kt-qWH"/>
+                            <constraint firstItem="zbl-5a-c0d" firstAttribute="top" secondItem="zeZ-kI-GH2" secondAttribute="top" id="R6V-rX-cZp"/>
+                            <constraint firstItem="Y77-yT-uQf" firstAttribute="top" secondItem="zeZ-kI-GH2" secondAttribute="top" id="RmZ-t5-0iS"/>
+                            <constraint firstItem="zbl-5a-c0d" firstAttribute="leading" secondItem="Y77-yT-uQf" secondAttribute="trailing" constant="20" id="WUm-gf-doT"/>
+                            <constraint firstAttribute="bottom" secondItem="zbl-5a-c0d" secondAttribute="bottom" id="m1H-43-bfn"/>
+                            <constraint firstAttribute="bottom" secondItem="Y77-yT-uQf" secondAttribute="bottom" id="qwj-IY-fsm"/>
+                            <constraint firstAttribute="trailing" secondItem="zbl-5a-c0d" secondAttribute="trailing" id="tXX-TZ-Goo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zeZ-kI-GH2" secondAttribute="trailing" id="6av-2o-Mc5"/>
+                    <constraint firstAttribute="bottom" secondItem="zeZ-kI-GH2" secondAttribute="bottom" id="UO0-Sa-Hok"/>
+                    <constraint firstItem="zeZ-kI-GH2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Win-EL-dH1"/>
+                    <constraint firstItem="zeZ-kI-GH2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hj8-fw-iSh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateField" destination="eWb-gb-9Bh" id="RRc-uR-xXs"/>
+                <outlet property="decriptionField" destination="SRD-uu-Se1" id="F2M-r9-eYU"/>
+                <outlet property="eventImage" destination="Y77-yT-uQf" id="GJi-5X-IYq"/>
+                <outlet property="eventName" destination="nVj-YA-zaV" id="PLH-LV-KrF"/>
+                <outlet property="status" destination="nwr-SB-2qR" id="nBb-N4-imP"/>
+            </connections>
+            <point key="canvasLocation" x="44" y="90"/>
+        </tableViewCell>
+    </objects>
+</document>
