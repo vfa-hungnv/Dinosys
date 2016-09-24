@@ -34,6 +34,8 @@ class FirstViewController: UIViewController {
     private func setLayout() {
         tableView.estimatedSectionHeaderHeight = 200
         self.tableView.showsVerticalScrollIndicator = false
+        
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,8 +89,8 @@ extension FirstViewController: UITableViewDelegate {
 }
 
 extension FirstViewController: UpdateTableViewProtocol {
-    func updateTableView(contentOffSet: Float) {
-        print("Content off set: \(contentOffSet)")
+    func updateTableView(index: Int) {
+        print("Content off set: \(index)")
     }
 }
 
