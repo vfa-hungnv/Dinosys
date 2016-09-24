@@ -20,7 +20,6 @@ class ScrollViewController: UIViewController {
     @IBOutlet var London: UIImageView!
     
     @IBOutlet var stackImage: UIStackView!
-
     
     @IBOutlet var scrollView: UIScrollView!
     
@@ -35,15 +34,13 @@ class ScrollViewController: UIViewController {
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         scrollView.showsHorizontalScrollIndicator = false
         stackImageWidth = (stackImage.frame.maxX - stackImage.frame.minX)
         imageWidth = Manchester.frame.maxX - Manchester.frame.minX
-        
-        
+
     }
     
     fileprivate func calculateCityShow(contenntOffset: CGPoint) -> Int{
@@ -58,27 +55,29 @@ class ScrollViewController: UIViewController {
 extension ScrollViewController: UIScrollViewDelegate {
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX)
+        let imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX) + Float(stackImage.spacing)
         let currentOffset = Float(scrollView.contentOffset.x)
         let targetOffset = Float(targetContentOffset.pointee.x)
-        var newTargetOffset = Float(0)
         
+        let newTarget = newTargetOffset(imageWith: imageWidth, currentOffset: currentOffset, targetOffSet: targetOffset)
         
-        if targetOffset > currentOffset {
-            newTargetOffset = ceilf(currentOffset / imageWidth) * imageWidth
-        } else {
-            newTargetOffset = floorf(currentOffset / imageWidth) * imageWidth
-        }
+        targetContentOffset.pointee.x = CGFloat(newTarget.0)
+        
+        delegate?.updateTableView(index: Int(newTarget.1))
+    }
     
+    private func newTargetOffset(imageWith: Float, currentOffset: Float, targetOffSet: Float) -> (Float, Float) {
+        typealias Result = (Float, Float)
+        var newTargetOffset: Float = 0.0
         if newTargetOffset < 0 {
             newTargetOffset = 0
-        } else if newTargetOffset > currentOffset {
-            newTargetOffset = currentOffset
+            return Result(newTargetOffset, 0.0)
         }
+        let times = floorf((currentOffset / imageWith))
+        newTargetOffset = times * imageWith
 
-        let new = CGPoint(x: Int(newTargetOffset), y: 0)
-    
-        scrollView.setContentOffset(new, animated: true)
+        
+        return Result(newTargetOffset, times)
     }
 }
 
