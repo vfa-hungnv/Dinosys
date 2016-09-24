@@ -31,17 +31,26 @@ class ScrollViewController: UIViewController {
     
     override func viewDidLoad() {
         scrollView.delegate = self
-        
+        stackImageWidth = (stackImage.frame.maxX - stackImage.frame.minX)
+        imageWidth = Manchester.frame.maxX - Manchester.frame.minX
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        scrollView.showsHorizontalScrollIndicator = false
-        stackImageWidth = (stackImage.frame.maxX - stackImage.frame.minX)
-        imageWidth = Manchester.frame.maxX - Manchester.frame.minX
+    
 
+        
+        setUpLayout()
     }
+    
+    private func setUpLayout() {
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        London.layer.shadowOpacity = 0.6
+        Manchester.layer.shadowOpacity = 0.6
+        Paris.layer.shadowOpacity = 0.6
+    }
+    
     
     fileprivate func calculateCityShow(contenntOffset: CGPoint) -> Int{
         let offSet = contenntOffset.x
@@ -55,7 +64,7 @@ class ScrollViewController: UIViewController {
 extension ScrollViewController: UIScrollViewDelegate {
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX) + Float(stackImage.spacing)
+        let imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX)
         let currentOffset = Float(scrollView.contentOffset.x)
         let targetOffset = Float(targetContentOffset.pointee.x)
         
@@ -74,7 +83,7 @@ extension ScrollViewController: UIScrollViewDelegate {
             return Result(newTargetOffset, 0.0)
         }
         let times = floorf((currentOffset / imageWith))
-        newTargetOffset = times * imageWith
+        newTargetOffset = times * imageWith + Float(stackImage.spacing) 
 
         
         return Result(newTargetOffset, times)
