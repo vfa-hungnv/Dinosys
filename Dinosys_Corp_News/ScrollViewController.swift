@@ -56,16 +56,13 @@ class ScrollViewController: UIViewController {
 }
 
 extension ScrollViewController: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-    }
-    
+
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        var imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX)
-        var currentOffset = Float(scrollView.contentOffset.x)
-        var targetOffset = Float(targetContentOffset.pointee.x)
+        let imageWidth = Float(Manchester.frame.maxX - Manchester.frame.minX)
+        let currentOffset = Float(scrollView.contentOffset.x)
+        let targetOffset = Float(targetContentOffset.pointee.x)
         var newTargetOffset = Float(0)
-        var scrollViewWidth = Float(scrollView.contentSize.width)
+        
         
         if targetOffset > currentOffset {
             newTargetOffset = ceilf(currentOffset / imageWidth) * imageWidth
@@ -78,37 +75,12 @@ extension ScrollViewController: UIScrollViewDelegate {
         } else if newTargetOffset > currentOffset {
             newTargetOffset = currentOffset
         }
-        
-        //Float(targetContentOffset.pointee.x) == currentOffset
+
         let new = CGPoint(x: Int(newTargetOffset), y: 0)
     
         scrollView.setContentOffset(new, animated: true)
     }
 }
-//func scrollViewWillEndDragging(scrollView: UIScrollView!, withVelocity velocity: CGPoint, targetContentOffset: UnsafePointer<CGPoint>) {
-//    
-//    var pageWidth = Float(200 + 30)
-//    var currentOffset = Float(scrollView.contentOffset.x)
-//    var targetOffset = Float(targetContentOffset.memory.x)
-//    var newTargetOffset = Float(0)
-//    var scrollViewWidth = Float(scrollView.contentSize.width)
-//    
-//    if targetOffset > currentOffset {
-//        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth
-//    } else {
-//        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth
-//    }
-//    
-//    if newTargetOffset < 0 {
-//        newTargetOffset = 0
-//    } else if newTargetOffset > currentOffset {
-//        newTargetOffset = currentOffset
-//    }
-//    
-//    Float(targetContentOffset.memory.x) == currentOffset
-//    
-//    scrollView.setContentOffset(CGPointMake(CGFloat(newTargetOffset), 0), animated: true)
-//}
 
 
 
