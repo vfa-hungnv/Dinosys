@@ -9,14 +9,13 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-    @IBOutlet var searchBar: UISearchBar!
     
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var shortImages: UIView!
-    fileprivate let manager = ManagerFake.share
-
     @IBOutlet var largeImages: UIView!
     @IBOutlet var tableView: UITableView!
     
+    fileprivate let manager = ManagerFake.share
     fileprivate var cityName = "London"
     
     override func viewDidLoad() {
@@ -42,7 +41,7 @@ class FirstViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowScrollSegue" || segue.identifier == "ShortImages" {
+        if segue.identifier == "ShowScrollSegue" {
             if let scrollView = segue.destination as? ScrollViewController{
                 scrollView.delegate = self
             }
@@ -82,9 +81,11 @@ extension FirstViewController: UITableViewDataSource {
 
 extension FirstViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let _ = manager.cities?[cityName]?.events {
-            let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerCell") as? EventHeaderCell
-            return cell
+        if let city = manager.cities?[cityName]{
+            if let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerCell") as? EventHeaderCell {
+                cell.cityEventNameField.text = "\(city.name) events"
+                return cell
+            }
         }
         return nil
     }

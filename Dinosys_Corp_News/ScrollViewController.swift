@@ -39,33 +39,6 @@ class ScrollViewController: UIViewController {
         addGesture()
     }
     
-    private func addGesture() {
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
-        swipeUp.direction = UISwipeGestureRecognizerDirection.up
-        self.view.addGestureRecognizer(swipeUp)
-        
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
-        swipeDown.direction = UISwipeGestureRecognizerDirection.down
-        self.view.addGestureRecognizer(swipeDown)
-    }
-    
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-        switch swipeGesture.direction {
-
-            case UISwipeGestureRecognizerDirection.down:
-                print("Swiped down")
-                delegate?.updateTableViewHeigh(isLarger: false)
-
-            case UISwipeGestureRecognizerDirection.up:
-                print("Swiped up")
-                delegate?.updateTableViewHeigh(isLarger: true)
-            default:
-                break
-            }
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
@@ -80,13 +53,45 @@ class ScrollViewController: UIViewController {
         Paris.layer.shadowOpacity = 0.6
     }
     
-    
     fileprivate func calculateCityShow(contenntOffset: CGPoint) -> Int{
         let offSet = contenntOffset.x
         let stackWidth = stackImage.frame.maxX - stackImage.frame.minX
         
         let index = (Int)(stackWidth / offSet)
         return index
+    }
+    
+    
+}
+
+// For handle swipe up-down
+extension ScrollViewController {
+    
+    fileprivate func addGesture() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+                
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+                delegate?.updateTableViewHeigh(isLarger: false)
+                
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+                delegate?.updateTableViewHeigh(isLarger: true)
+            default:
+                break
+            }
+        }
     }
 }
 

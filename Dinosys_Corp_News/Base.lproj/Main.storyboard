@@ -225,23 +225,6 @@
             </objects>
             <point key="canvasLocation" x="356" y="329.2353823088456"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="nzy-d4-nL0">
-            <objects>
-                <viewController id="7FX-Ex-oCF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s6p-tz-Roj"/>
-                        <viewControllerLayoutGuide type="bottom" id="pWG-RD-f6Q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QXQ-0P-Jhm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SJO-So-1h0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="London" width="1080" height="1920"/>

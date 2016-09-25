@@ -15,20 +15,5 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet var dateField: UILabel!
     @IBOutlet var eventName: UILabel!
     @IBOutlet var status: UILabel!
-    @IBOutlet var decriptionField: UILabel!
-    
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+    @IBOutlet var decriptionField: UILabel!    
 }

@@ -10,10 +10,6 @@ import UIKit
 
 class EventHeaderCell: UITableViewHeaderFooterView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    
+    @IBOutlet var cityEventNameField: UILabel! 
 }

@@ -22,7 +22,7 @@ class Manager {
     }
 }
 
-// This method make fake data for show
+// This method user for fake manager class
 extension Manager {
 
     fileprivate func setDataForFake() -> [City]{
@@ -74,7 +74,7 @@ extension Manager {
         return cities
     }
 }
-
+// Use this class for data testing
 class ManagerFake {
     
     private let manager = Manager()
