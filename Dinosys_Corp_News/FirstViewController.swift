@@ -11,8 +11,10 @@ import UIKit
 class FirstViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
+    @IBOutlet var shortImages: UIView!
     fileprivate let manager = ManagerFake.share
 
+    @IBOutlet var largeImages: UIView!
     @IBOutlet var tableView: UITableView!
     
     fileprivate var cityName = "London"
@@ -36,10 +38,11 @@ class FirstViewController: UIViewController {
     private func setLayout() {
         tableView.estimatedSectionHeaderHeight = 200
         self.tableView.showsVerticalScrollIndicator = false
+        shortImages.isHidden = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowScrollSegue" {
+        if segue.identifier == "ShowScrollSegue" || segue.identifier == "ShortImages" {
             if let scrollView = segue.destination as? ScrollViewController{
                 scrollView.delegate = self
             }
@@ -87,8 +90,8 @@ extension FirstViewController: UITableViewDelegate {
     }
 }
 
-extension FirstViewController: UpdateTableViewProtocol {
-    func updateTableView(index: Int) {
+extension FirstViewController: EventScrollViewDelegate {
+    func updateTableViewCell(index: Int) {
         
         switch index {
         case 0:
@@ -102,6 +105,11 @@ extension FirstViewController: UpdateTableViewProtocol {
         }
         print("City name: \(cityName)")
         tableView.reloadData()
+    }
+    
+    func updateTableViewHeigh(isLarger: Bool) {
+        shortImages.isHidden = isLarger
+        //largeImages.removeFromSuperview()
     }
 }
 

@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol UpdateTableViewProtocol {
-    func updateTableView(index: Int)
+protocol EventScrollViewDelegate {
+    func updateTableViewCell(index: Int)
+    func updateTableViewHeigh(isLarger: Bool)
 }
 
 
@@ -23,7 +24,7 @@ class ScrollViewController: UIViewController {
     
     @IBOutlet var scrollView: UIScrollView!
     
-    var delegate: UpdateTableViewProtocol?
+    var delegate: EventScrollViewDelegate?
     
     var stackImageWidth: CGFloat?
     var imageWidth: CGFloat?
@@ -31,15 +32,43 @@ class ScrollViewController: UIViewController {
     
     override func viewDidLoad() {
         scrollView.delegate = self
+        
         stackImageWidth = (stackImage.frame.maxX - stackImage.frame.minX)
         imageWidth = Manchester.frame.maxX - Manchester.frame.minX
+
+        addGesture()
+    }
+    
+    private func addGesture() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture: )))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+        switch swipeGesture.direction {
+
+            case UISwipeGestureRecognizerDirection.down:
+                print("Swiped down")
+                delegate?.updateTableViewHeigh(isLarger: false)
+
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+                delegate?.updateTableViewHeigh(isLarger: true)
+            default:
+                break
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-
-        
         setUpLayout()
     }
     
@@ -72,12 +101,13 @@ extension ScrollViewController: UIScrollViewDelegate {
         
         targetContentOffset.pointee.x = CGFloat(newTarget.0)
         
-        delegate?.updateTableView(index: Int(newTarget.1))
+        delegate?.updateTableViewCell(index: Int(newTarget.1))
     }
     
     private func newTargetOffset(imageWith: Float, currentOffset: Float, targetOffSet: Float) -> (Float, Float) {
         typealias Result = (Float, Float)
         var newTargetOffset: Float = 0.0
+        
         if newTargetOffset < 0 {
             newTargetOffset = 0
             return Result(newTargetOffset, 0.0)

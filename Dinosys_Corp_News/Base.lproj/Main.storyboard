@@ -6,6 +6,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="93B-al-FyX">
+            <objects>
+                <viewController id="wTW-2h-oXz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="reY-Tj-t3P"/>
+                        <viewControllerLayoutGuide type="bottom" id="FJ5-pI-qLb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZQe-8i-mVy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Manchester" translatesAutoresizingMaskIntoConstraints="NO" id="HO6-wM-ZOC">
+                                <frame key="frameInset" minY="-7" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Gx-qZ-3hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="-662"/>
+        </scene>
         <!--FirstViewController-->
         <scene sceneID="uZg-M1-2qC">
             <objects>
@@ -39,9 +63,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhv-Du-qiT">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="7Zh-p9-6Ze"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="wTW-2h-oXz" kind="embed" identifier="ShortImages" id="PW5-Hs-2vd"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Qhv-Du-qiT" firstAttribute="top" secondItem="gth-hR-qDV" secondAttribute="top" constant="8" id="3MX-89-Ubf"/>
                                     <constraint firstAttribute="trailing" secondItem="mhz-ZO-8NH" secondAttribute="trailing" id="Jba-0X-afL"/>
                                     <constraint firstAttribute="height" constant="120" id="KO2-Al-DJt"/>
                                     <constraint firstItem="UIM-c7-4zP" firstAttribute="top" secondItem="5ZC-me-Vju" secondAttribute="bottom" constant="5" id="NDh-aj-ZQu"/>
@@ -52,6 +85,8 @@
                                     <constraint firstItem="UIM-c7-4zP" firstAttribute="leading" secondItem="gth-hR-qDV" secondAttribute="leading" constant="5" id="czx-mK-6N8"/>
                                     <constraint firstItem="mhz-ZO-8NH" firstAttribute="top" secondItem="UIM-c7-4zP" secondAttribute="bottom" id="fFX-Y9-A5M"/>
                                     <constraint firstAttribute="trailing" secondItem="UIM-c7-4zP" secondAttribute="trailing" id="huG-fU-iRq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qhv-Du-qiT" secondAttribute="trailing" id="lL7-R1-vai"/>
+                                    <constraint firstItem="Qhv-Du-qiT" firstAttribute="leading" secondItem="gth-hR-qDV" secondAttribute="leading" id="xJO-G4-5Lq"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdI-PF-y7Y">
@@ -70,7 +105,7 @@
                             <constraint firstAttribute="trailing" secondItem="STB-8o-QJK" secondAttribute="trailing" id="ZbE-XU-o9x"/>
                             <constraint firstItem="STB-8o-QJK" firstAttribute="leading" secondItem="lEh-IL-hPA" secondAttribute="leading" constant="5" id="bKg-9o-Xp3"/>
                             <constraint firstItem="gth-hR-qDV" firstAttribute="leading" secondItem="lEh-IL-hPA" secondAttribute="leading" id="cY7-1L-TML"/>
-                            <constraint firstItem="STB-8o-QJK" firstAttribute="top" secondItem="wdI-PF-y7Y" secondAttribute="bottom" constant="-3" id="egp-8o-bPZ"/>
+                            <constraint firstItem="STB-8o-QJK" firstAttribute="top" secondItem="wdI-PF-y7Y" secondAttribute="bottom" priority="999" constant="-3" id="egp-8o-bPZ"/>
                             <constraint firstAttribute="trailing" secondItem="wdI-PF-y7Y" secondAttribute="trailing" id="h2N-Bc-SzF"/>
                             <constraint firstItem="wdI-PF-y7Y" firstAttribute="top" secondItem="gth-hR-qDV" secondAttribute="bottom" constant="-2" id="iS0-gX-rcL"/>
                             <constraint firstAttribute="trailing" secondItem="gth-hR-qDV" secondAttribute="trailing" id="ivW-8d-nCd"/>
@@ -79,13 +114,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="largeImages" destination="wdI-PF-y7Y" id="MVW-KQ-vnb"/>
                         <outlet property="searchBar" destination="5ZC-me-Vju" id="c80-bJ-4bT"/>
+                        <outlet property="shortImages" destination="Qhv-Du-qiT" id="zbK-06-GNR"/>
                         <outlet property="tableView" destination="STB-8o-QJK" id="uqq-QY-6mV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcE-io-Q3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354.39999999999998" y="-160.56971514242881"/>
+            <point key="canvasLocation" x="298" y="-163"/>
         </scene>
         <!--Scroll View Controller-->
         <scene sceneID="iUn-3G-EPk">
@@ -187,6 +224,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNC-4F-TUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356" y="329.2353823088456"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nzy-d4-nL0">
+            <objects>
+                <viewController id="7FX-Ex-oCF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s6p-tz-Roj"/>
+                        <viewControllerLayoutGuide type="bottom" id="pWG-RD-f6Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QXQ-0P-Jhm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SJO-So-1h0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

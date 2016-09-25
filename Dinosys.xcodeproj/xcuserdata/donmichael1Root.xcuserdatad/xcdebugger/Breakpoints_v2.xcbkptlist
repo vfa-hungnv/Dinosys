@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dinosys_Corp_News/FirstViewController.swift"
-            timestampString = "496419058.250337"
+            timestampString = "496470151.860057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "updateTableViewHeigh(isLarger:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
