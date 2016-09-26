@@ -8,15 +8,19 @@
 
 import UIKit
 
+
+
 class FirstViewController: UIViewController {
     
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var shortImages: UIView!
+
     @IBOutlet var largeImages: UIView!
     @IBOutlet var tableView: UITableView!
     
     fileprivate let manager = ManagerFake.share
     fileprivate var cityName = "London"
+    
+    var status: FirstViewControllerStatus = .ExpandedTopView
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,14 @@ class FirstViewController: UIViewController {
         
         setUpNibFile()
         setLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if status == .ExpandedTopView {
+            print("Expanded")
+        } else {
+            print("Collapsed")
+        }
     }
     
     private func setUpNibFile() {
@@ -37,13 +49,13 @@ class FirstViewController: UIViewController {
     private func setLayout() {
         tableView.estimatedSectionHeaderHeight = 200
         self.tableView.showsVerticalScrollIndicator = false
-        shortImages.isHidden = true
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowScrollSegue" {
-            if let scrollView = segue.destination as? ScrollViewController{
-                scrollView.delegate = self
+        if segue.identifier == "CollectionHorizantal" {
+            if let collectionImageHorizontal = segue.destination as? CollectionImageHorizontalViewController{
+                collectionImageHorizontal.delegate = self
             }
         }
     }
@@ -91,7 +103,8 @@ extension FirstViewController: UITableViewDelegate {
     }
 }
 
-extension FirstViewController: EventScrollViewDelegate {
+
+extension FirstViewController: HorizonCollectionDelegate {
     func updateTableViewCell(index: Int) {
         
         switch index {
@@ -108,9 +121,8 @@ extension FirstViewController: EventScrollViewDelegate {
         tableView.reloadData()
     }
     
-    func updateTableViewHeigh(isLarger: Bool) {
-        shortImages.isHidden = isLarger
-        //largeImages.removeFromSuperview()
+    func changeFirstViewStatus(status: FirstViewControllerStatus) {
+        self.status = status
     }
 }
 
