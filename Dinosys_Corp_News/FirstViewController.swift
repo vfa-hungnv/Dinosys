@@ -14,8 +14,9 @@ class FirstViewController: UIViewController {
     
     @IBOutlet var searchBar: UISearchBar!
 
-    @IBOutlet var largeImages: UIView!
+    @IBOutlet var imageCollection: UIView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var TopView: UIView!
     
     fileprivate let manager = ManagerFake.share
     fileprivate var cityName = "London"
@@ -31,12 +32,8 @@ class FirstViewController: UIViewController {
         setLayout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if status == .ExpandedTopView {
-            print("Expanded")
-        } else {
-            print("Collapsed")
-        }
+    func update(status: FirstViewControllerStatus) {
+
     }
     
     private func setUpNibFile() {
@@ -59,7 +56,12 @@ class FirstViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
+    @IBOutlet var ImageCollectionHeight: NSLayoutConstraint!
 }
 
 extension FirstViewController: UITableViewDataSource {
@@ -122,7 +124,14 @@ extension FirstViewController: HorizonCollectionDelegate {
     }
     
     func changeFirstViewStatus(status: FirstViewControllerStatus) {
-        self.status = status
+        if status == .ExpandedTopView {
+            print("Expanded")
+            ImageCollectionHeight.constant = 275
+            
+        } else {
+            print("Collapsed")
+            ImageCollectionHeight.constant = 75
+        }
     }
 }
 
