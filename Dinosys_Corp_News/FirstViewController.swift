@@ -16,12 +16,17 @@ class FirstViewController: UIViewController {
 
     @IBOutlet var imageCollection: UIView!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var TopView: UIView!
     
     fileprivate let manager = ManagerFake.share
     fileprivate var cityName = "London"
     
     var status: FirstViewControllerStatus = .ExpandedTopView
+    
+    //Contrain to modify when status change
+    @IBOutlet var topViewHeight: NSLayoutConstraint!
+    @IBOutlet var imageHeight: NSLayoutConstraint!
+    @IBOutlet var tableHeight: NSLayoutConstraint!
+    @IBOutlet var contrainToTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +62,8 @@ class FirstViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+   
 
-    @IBOutlet var ImageCollectionHeight: NSLayoutConstraint!
 }
 
 extension FirstViewController: UITableViewDataSource {
@@ -105,7 +107,7 @@ extension FirstViewController: UITableViewDelegate {
     }
 }
 
-
+// hander for delegate
 extension FirstViewController: HorizonCollectionDelegate {
     func updateTableViewCell(index: Int) {
         
@@ -126,15 +128,21 @@ extension FirstViewController: HorizonCollectionDelegate {
     func changeFirstViewStatus(status: FirstViewControllerStatus) {
         if status == .ExpandedTopView {
             print("Expanded")
-            ImageCollectionHeight.constant = 275
-            
+            imageHeight.constant = 269
+            tableHeight.constant = 270
+            topViewHeight.constant = 88
+            contrainToTop.constant = 0
         } else {
             print("Collapsed")
-            ImageCollectionHeight.constant = 75
+            imageHeight.constant = 150
+            tableHeight.constant = 488
+            topViewHeight.constant = 0
+            contrainToTop.constant = -10
         }
     }
 }
 
+//Help method to parse date -> string
 extension DateFormatter {
     convenience init(dateStyle: DateFormatter.Style) {
         self.init()

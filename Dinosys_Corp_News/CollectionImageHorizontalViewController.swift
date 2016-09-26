@@ -22,7 +22,6 @@ class CollectionImageHorizontalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadFakeData()
         
         collectionView.dataSource = self
@@ -32,6 +31,10 @@ class CollectionImageHorizontalViewController: UIViewController {
     }
     private func loadFakeData() {
         Images = ["Manchester", "Paris", "London"]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

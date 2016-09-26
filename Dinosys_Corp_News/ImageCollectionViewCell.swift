@@ -17,6 +17,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
             let image  = UIImage(named: imageName)
             DispatchQueue.main.async {
                 self.imageView.image = image
+                self.imageView.layer.shadowColor = UIColor.black.cgColor
+                self.imageView.layer.shadowOpacity = 0.7
+                self.imageView.layer.shadowOffset = CGSize.zero
+                self.imageView.layer.shadowRadius = 10
             }
         }
     }
