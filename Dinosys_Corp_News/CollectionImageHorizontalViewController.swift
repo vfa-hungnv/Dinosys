@@ -59,20 +59,22 @@ extension CollectionImageHorizontalViewController: UICollectionViewDelegate { }
 
 extension CollectionImageHorizontalViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
-        let offset = Float(collectionView.contentOffset.x)
-        
-        let width = Float(collectionView.collectionViewLayout.collectionViewContentSize.width)
         
         let totalCity = Float((Images?.count)!)
         
-
+        let width = Float(collectionView.collectionViewLayout.collectionViewContentSize.width)
+        
+        let offset = Float(collectionView.contentOffset.x) + Float(width/totalCity) / 2
+        
+       
         let index = floorf(offset / (width/totalCity))
         
         delegate?.updateTableViewCell(index: Int(index))
     }
 }
 
+
+// Hander gestune
 extension CollectionImageHorizontalViewController {
     
     fileprivate func addGesture() {
