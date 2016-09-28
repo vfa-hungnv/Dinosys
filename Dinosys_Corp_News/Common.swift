@@ -12,3 +12,8 @@ enum FirstViewControllerStatus {
     case ExpandedTopView
     case CollapsedTopView
 }
+
+protocol HorizonCollectionDelegate {
+    func updateTableViewCell(index: Int)
+    func changeFirstViewStatus(status: FirstViewControllerStatus)
+}

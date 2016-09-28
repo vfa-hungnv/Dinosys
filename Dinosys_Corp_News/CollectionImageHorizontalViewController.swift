@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol HorizonCollectionDelegate {
-    func updateTableViewCell(index: Int)
-    func changeFirstViewStatus(status: FirstViewControllerStatus)
-}
 
 class CollectionImageHorizontalViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
