@@ -8,15 +8,25 @@
 
 import UIKit
 
+
+
 class FirstViewController: UIViewController {
     
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var shortImages: UIView!
-    @IBOutlet var largeImages: UIView!
+
+    @IBOutlet var imageCollection: UIView!
     @IBOutlet var tableView: UITableView!
     
     fileprivate let manager = ManagerFake.share
     fileprivate var cityName = "London"
+    
+    var status: FirstViewControllerStatus = .ExpandedTopView
+    
+    //Contrain to modify when status change
+    @IBOutlet var topViewHeight: NSLayoutConstraint!
+    @IBOutlet var imageHeight: NSLayoutConstraint!
+    @IBOutlet var tableHeight: NSLayoutConstraint!
+    @IBOutlet var contrainToTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +35,10 @@ class FirstViewController: UIViewController {
         
         setUpNibFile()
         setLayout()
+    }
+    
+    func update(status: FirstViewControllerStatus) {
+
     }
     
     private func setUpNibFile() {
@@ -37,16 +51,18 @@ class FirstViewController: UIViewController {
     private func setLayout() {
         tableView.estimatedSectionHeaderHeight = 200
         self.tableView.showsVerticalScrollIndicator = false
-        shortImages.isHidden = true
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowScrollSegue" {
-            if let scrollView = segue.destination as? ScrollViewController{
-                scrollView.delegate = self
+        if segue.identifier == "CollectionHorizantal" {
+            if let collectionImageHorizontal = segue.destination as? CollectionImageHorizontalViewController{
+                collectionImageHorizontal.delegate = self
             }
         }
     }
+    
+   
 
 }
 
@@ -91,7 +107,8 @@ extension FirstViewController: UITableViewDelegate {
     }
 }
 
-extension FirstViewController: EventScrollViewDelegate {
+// hander for delegate
+extension FirstViewController: HorizonCollectionDelegate {
     func updateTableViewCell(index: Int) {
         
         switch index {
@@ -108,12 +125,24 @@ extension FirstViewController: EventScrollViewDelegate {
         tableView.reloadData()
     }
     
-    func updateTableViewHeigh(isLarger: Bool) {
-        shortImages.isHidden = isLarger
-        //largeImages.removeFromSuperview()
+    func changeFirstViewStatus(status: FirstViewControllerStatus) {
+        if status == .ExpandedTopView {
+            print("Expanded")
+            imageHeight.constant = 269
+            tableHeight.constant = 270
+            topViewHeight.constant = 88
+            contrainToTop.constant = 0
+        } else {
+            print("Collapsed")
+            imageHeight.constant = 150
+            tableHeight.constant = 488
+            topViewHeight.constant = 0
+            contrainToTop.constant = -10
+        }
     }
 }
 
+//Help method to parse date -> string
 extension DateFormatter {
     convenience init(dateStyle: DateFormatter.Style) {
         self.init()
